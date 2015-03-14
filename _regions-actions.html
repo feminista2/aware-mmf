@@ -1,0 +1,50 @@
+<h3>Actions et événements à venir</h3>
+    
+      {% if page.calendar.events_upcoming_count == 0 %}
+
+      Pas encore d'{{ page.calendar.event_name | pluralize | downcase }}.
+      {% if page.calendar.allow_user_submitted? %}
+      Vous pouvez
+      <a href="{{ page.calendar.new_event_url }}">soumettre un événement</a>!
+      {% endif %}
+
+      {% else %}
+
+      <ul class="event-wrap">
+        {% for event in page.calendar.events_upcoming %}
+        <li>{% include "event" %}</li>
+        {% endfor %}
+      </ul>
+
+      {% if page.calendar.allow_user_submitted? %}
+      <div class="padtopmore">
+        <a class="submit-link" href="{{ page.calendar.new_event_url }}">Soumettez un événement {{ page.calendar.event_name | downcase }}</a>
+      </div>
+      {% endif %}
+
+      <div class="padtop">
+        {{ page.calendar.events_upcoming | paginate prev_label: "&laquo;" next_label: "&raquo;" }}
+      </div>
+
+      {% endif %}
+    
+    <h3>Actions et événements passés</h3>
+    
+     {% if page.calendar.events_past_count == 0 %}
+
+      Pas d'{{ page.calendar.event_name | pluralize | downcase }}.
+
+      {% else %}
+
+      <ul class="event-wrap">
+        {% for event in page.calendar.events_past %}
+        <li>{% include "event" %}</li>
+        {% endfor %}
+      </ul>
+
+      <div class="padtop">
+        {{ page.calendar.events_past | paginate prev_label: "&laquo;" next_label: "&raquo;" }}
+      </div>
+
+      {% endif %}
+
