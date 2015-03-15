@@ -2,9 +2,9 @@
 {% for signup in page.directory.listings %}
     <div class="contact-region">
       {% if signup.has_email? %}
-      <p><a href="mailto:{{ signup.email }}">{{ signup.published_name }}</a></p>
+      <p><strong><a href="mailto:{{ signup.email }}">{{ signup.published_name }}</a></strong></p>
       {% else %}
-       <p>{{ signup.published_name }}</p>
+       <p><strong>{{ signup.published_name }}</strong></p>
       {% endif %}
      <p>{{ signup.phone_number }} </p>
 {% for relationship in signup.relationships %}
