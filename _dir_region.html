@@ -1,11 +1,19 @@
-    {% for signup in page.directory.listings %}
-    <div class="people-list {% cycle 'odd', 'even' %}">
-      <div class="people-name">{{ signup.published_name }}</div>
-      <p> {{ email }}, {{ phone_number }} </p>
-       {% for relationship in current_signup.relationships %}
-       {% if relationship.title == contact_region %}
-        <p> {{ signup.published_name }} </p>
-       {% endif %}
-       {% endfor %}
-    </div>
-    {% endfor %}
+<h3>Contact pour la région</h3>
+{% for signup in page.directory.listings %}
+    <div class="contact-region">
+      {% if signup.has_email? %}
+      <p><a href="mailto:{{ signup.email }}">{{ signup.published_name }}</a></p>
+      {% else %}
+       <p>{{ signup.published_name }}</p>
+      {% endif %}
+     <p>{{ signup.phone_number }} </p>
+{% for relationship in signup.relationships %}
+      {% if relationship.other_signup.has_email? %}
+      <p><a href="mailto:{{ relationship.other_signup.email }}">{{ relationship.other_signup.published_name }}</a> </p>
+      {% else %}
+       <p>{{ relationship.other_signup.published_name }}</p>
+      {% endif %}
+      <p> {{ relationship.other_signup.phone_number }}
+{% endfor %}
+ </div>
+{% endfor %}
