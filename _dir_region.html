@@ -8,12 +8,14 @@
       {% endif %}
      <p>{{ signup.phone_number }} </p>
 {% for relationship in signup.relationships %}
+      {% if relationship.title == "contact_region" %}
       {% if relationship.other_signup.has_email? %}
       <p><a href="mailto:{{ relationship.other_signup.email }}">{{ relationship.other_signup.published_name }}</a> </p>
       {% else %}
        <p>{{ relationship.other_signup.published_name }}</p>
       {% endif %}
       <p> {{ relationship.other_signup.phone_number }}
+      {% endif %}
 {% endfor %}
  </div>
 {% endfor %}
