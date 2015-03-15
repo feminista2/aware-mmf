@@ -14,8 +14,10 @@
       {% else %}
        <p>{{ relationship.other_signup.published_name }}</p>
       {% endif %}
-      <p> {{ relationship.other_signup.phone_number }}
+      {% if relationship.other_signup.work_phone_number != signup.phone_number %}
+      <p> {{ relationship.other_signup.work_phone_number }}</p>
       {% endif %}
+        {% endif %}
 {% endfor %}
  </div>
 {% endfor %}
