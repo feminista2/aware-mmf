@@ -11,7 +11,11 @@
       {{ page.basic.content }}
     </div>
   </div>
-
+  
+  <div id="contact" class="intro">
+    {% subpage "dir_montreal" with "dir_region" %}
+  </div>
+  
     <div id="events-wrap">
    {% subpage "actions_montreal" with "regions-actions" %}
   </div>
