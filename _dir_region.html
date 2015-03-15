@@ -1,0 +1,11 @@
+    {% for signup in page.directory.listings %}
+    <div class="people-list {% cycle 'odd', 'even' %}">
+      <div class="people-name">{{ signup.published_name }}</div>
+      <p> {{ email }}, {{ phone_number }} </p>
+       {% for relationship in current_signup.relationships %}
+       {% if relationship.title == contact_region %}
+        <p> {{ signup.published_name }} </p>
+       {% endif %}
+       {% endfor %}
+    </div>
+    {% endfor %}
