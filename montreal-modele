@@ -12,7 +12,7 @@
     </div>
   </div>
   
-  <div id="contact" class="intro">
+  <div id="contact-region" class="contact-region">
     {% subpage "dir_montreal" with "dir_region" %}
   </div>
   
