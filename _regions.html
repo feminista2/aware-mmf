@@ -1,4 +1,139 @@
 {% case page.slug %}
   
-  {% when "montreal" %}
+  {% when "gaspesie" %}
+      <div id="contact-region" class="contact-region">
+    {% subpage "dir_gaspesie" with "dir_region" %}
+  </div>
+  <div id="events-wrap">
+   {% subpage "actions_gaspesie" with "regions-actions" %}
+  </div>
   
+  {% when "chaudiere_appalaches" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_chaudiere_appalaches" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_chaudiere_appalaches" with "regions-actions" %}
+     </div>
+  
+  {% when "estrie" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_estrie" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_estrie" with "regions-actions" %}
+     </div>  
+    
+  {% when "mauricie" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_mauricie" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_mauricie" with "regions-actions" %}
+     </div>
+  
+  {% when "cote-nord" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_cote_nord" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_cote_nord" with "regions-actions" %}
+     </div>
+  
+  {% when "saguenay_lac_st_jean" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_saguenay" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_saguenay_lac_st_jean" with "regions-actions" %}
+     </div>
+  
+  {% when "laval" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_laval" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_laval" with "regions-actions" %}
+     </div>
+
+  {% when "bas_saint_laurent" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_bas_saint_laurent" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_bas_saint_laurent" with "regions-actions" %}
+     </div>
+
+  {% when "outaouais" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_outaouais" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_outaouais" with "regions-actions" %}
+     </div>
+
+  {% when "monteregie" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_monteregie" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_centre_du_quebec" with "regions-actions" %}
+     </div>
+
+  {% when "lanaudiere" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_lanaudiere" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_lanaudiere" with "regions-actions" %}
+     </div>
+
+  {% when "laurentides" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_laurentides" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_laurentides" with "regions-actions" %}
+     </div>
+  
+  {% when "quebec" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_quebec" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_quebec" with "regions-actions" %}
+     </div>
+
+  {% when "montreal" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_montreal" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_montreal" with "regions-actions" %}
+     </div>
+
+  {% when "baie_james_nord_du_quebec" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_baie_james" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_baie_james_nord_du_quebec" with "regions-actions" %}
+     </div>
+
+  {% when "centre_du_quebec" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_centre_du_quebec" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_centre_du_quebec" with "regions-actions" %}
+     </div>
+ 
+  {% when "abitibi_temiscamingue" %}
+     <div id="contact-region" class="contact-region">
+     {% subpage "dir_abitibi_temiscamingue" with "dir_region" %}
+     </div>
+     <div id="events-wrap">
+     {% subpage "actions_abitibi_temiscamingue" with "regions-actions" %}
+     </div>
+ 
+  {% endcase %}
