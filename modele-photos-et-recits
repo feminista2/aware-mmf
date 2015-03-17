@@ -1,0 +1,44 @@
+{% include "breadcrumbs" %}
+
+{% if page.headline.size > 0 %}
+<h2 class="headline">{{ page.headline }}</h2>
+{% endif %}
+
+<div id="content">
+
+  <div id="intro" class="intro">
+    <div class="text-content">
+      {{ page.basic.content }}
+<iframe src="http://snapwidget.com/in/?u=bW1mcWN8aW58MTAwfDV8Nnx8bm98MHxub25lfG9uU3RhcnR8eWVzfHllcw==&ve=060315" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>    
+    </div>
+    <p>Pour voir tous les photos, visitez la <a href="http://instagram.com/mmfqc">MMF sur Instagram</a>.</p>
+    <p>Pour soumettre des photos: publier sur Instagram ou Facebook en utilisant le mot clic #MMF2015.</p>
+  </div>
+  
+    <div id="recits" class="custom">
+    <h2>Récits des actions de lancement</h2>
+    <div>{% subpage "recits" with "blog_recent" %}</div>
+    <div><a href="/recits">Voir tous les récits ou soumettre un récit</a></div>
+    </div>
+ 
+
+  {% if page.tags_count > 0 %}
+  <div class="page-tags">
+    {% include "page_tags" with page %}
+  </div>
+  {% endif %}
+
+  {% if page.is_homepage? == true and site.page_tags contains "homepage" %}
+    {% tag "homepage" with "homepage_widget" %}
+  {% endif %}
+
+  <div class="like-page">
+    <strong>Vous aimez cette page?</strong>
+    {% include "like_page" %}
+  </div>
+
+  {% if page.show_stream? %}
+  {% include "page_stream" %}
+  {% endif %}
+
+</div>
