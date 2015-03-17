@@ -145,10 +145,12 @@
 </div>
 {% endif %}
 
+{% unless page.is_homepage? %}
 <div class="like-page">
   <strong>Aimez-nous sur Facebook</strong>
   {% include "like_page" %}
 </div>
+{% endunless %}
 
 {% if page.show_stream? %}
 {% include "page_stream" %}
