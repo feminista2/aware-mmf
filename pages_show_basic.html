@@ -16,6 +16,14 @@
     {% include "photos_recits" %}
   {% endif %}
 
+  {% if page.slug == "actions_lancement" %}
+  	  {% subpage "liste_actions_lancement" with "lancement_event" %}
+  {% endif %}
+  
+  {% if page.slug == "medias" %}
+       {% subpage "communiques_de_presse" with "medias_communiques" %}
+  {% endif %}
+  
   {% if page.tags_count > 0 %}
   <div class="page-tags">
     {% include "page_tags" with page %}
