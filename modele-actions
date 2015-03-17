@@ -1,0 +1,152 @@
+<div class="padcontainer">
+
+  {% include "breadcrumbs" %}
+
+  <div class="content-container">
+
+    {% if page.headline.size > 0 %}
+    <h2 class="headline">{{ page.headline }}</h2>
+    {% endif %}
+
+    <div id="content">
+
+      {% if page.calendar.content.size > 0 %}
+      <div id="intro" class="intro">
+        {{ page.calendar.content }}
+      </div>
+      {% endif %}
+
+      {% if page.calendar.is_proximity? %}
+
+      <div class="padbottommore">
+
+        {% form_for address_change %}
+
+        <div class="form-wrap">
+          <div class="form">
+
+            <h4>Trouvez des {{ page.calendar.event_name | pluralize | downcase }} près de chez vous</h4>
+
+            <div class="padtop padbottom">{% text_field "submitted_address", class:"text", placeholder:"Adresse ou code postal" %}
+              <div class="padtopless distance">
+                {% assign distance = page.calendar.distance_radio_buttons | replace: 'miles', 'km' | replace: 'mile', 'km' %}
+                <span class="within">dans un rayon de</span>
+                <span class="radio-inline">{{ distance }}</span></div>
+                </div>
+            </div>
+
+            <div>
+              {% submit_tag "Rechercher", class:"submit-button" %}
+              {% if page.calendar.allow_user_submitted? %}
+              ou <a href="{{ page.calendar.new_event_url }}">soumettre un événement</a>
+              {% endif %}
+              <div class="form-submit"></div>
+            </div>
+
+            {% if page.calendar.events_upcoming_nearby_count > 0 %}
+            {% if page.calendar.events_upcoming_nearby_count > 1 %}
+            <div class="padtop">
+              <strong>{{ page.calendar.events_upcoming_nearby_count }} {{ page.calendar.event_name | pluralize | downcase }} trouvé.</strong>
+            </div>
+            {% endif %}
+            <div class="padtop map-wrap">
+              <div class="map">{{ page.calendar.events_upcoming_nearby_map }}</div>
+            </div>
+            {% else %}
+            <div class="padtopmore">
+              <strong>Aucun {{ page.calendar.event_name | downcase }} trouvé dans votre proximité,</strong> essayez d'élargir votre recherche
+              {% if page.calendar.allow_user_submitted? %}
+              ou peut-être
+              <a href="{{ page.calendar.new_event_url }}">organisez votre propre événement</a>?
+              {% endif %}
+            </div>
+            {% if page.calendar.events_upcoming.size > 0 %}
+            <div class="map-wrap padtop">
+              <div class="showing-all padbottomless">Montrer tous les {{ page.calendar.events_upcoming_count }} {{ page.calendar.event_name | pluralize | downcase }}.</div>
+              {{ page.calendar.events_upcoming_map }}
+            </div>
+            {% endif %}
+            {% endif %}
+
+          </div>
+        </div>
+
+        {% endform_for %}
+
+      </div>
+
+      {% if page.calendar.events_upcoming_nearby.size > 0 %}
+
+      <ul class="event-wrap">
+        {% for event in page.calendar.events_upcoming_nearby %}
+        <li>{% include "event" %}</li>
+        {% endfor %}
+      </ul>
+
+      {{ page.calendar.events_upcoming_nearby | paginate prev_label: "&laquo;" next_label: "&raquo;" }}
+
+      {% else %}
+
+      <ul class="event-wrap">
+        {% for event in page.calendar.events_upcoming %}
+        <li>{% include "event" %}</li>
+        {% endfor %}
+      </ul>
+
+      {{ page.calendar.events_upcoming | paginate prev_label: "&laquo;" next_label: "&raquo;" }}
+
+      {% endif %}
+
+      {% else %}
+
+      {% if page.calendar.show_map? %}
+
+      {% if page.calendar.events_upcoming_count > 0 %}
+
+      <div class="padbottommore">
+        <div class="form-wrap">
+          <div class="form">
+            <div class="padtop map-wrap">
+              {{ page.calendar.events_upcoming_map }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endif %}
+
+      {% endif %}
+
+      {% if page.calendar.events_upcoming_count == 0 %}
+
+      Pas encore d'{{ page.calendar.event_name | pluralize | downcase }}.
+      {% if page.calendar.allow_user_submitted? %}
+      Vous pouvez
+      <a href="{{ page.calendar.new_event_url }}">soumettre un événement</a>!
+      {% endif %}
+
+      {% else %}
+
+      <ul class="event-wrap">
+        {% for event in page.calendar.events_upcoming %}
+        <li>{% include "event" %}</li>
+        {% endfor %}
+      </ul>
+
+      {% if page.calendar.allow_user_submitted? %}
+      <div class="padtopmore">
+        <a class="submit-link" href="{{ page.calendar.new_event_url }}">Soumettez un événement {{ page.calendar.event_name | downcase }}</a>
+      </div>
+      {% endif %}
+
+      <div class="padtop">
+        {{ page.calendar.events_upcoming | paginate prev_label: "&laquo;" next_label: "&raquo;" }}
+      </div>
+
+      {% endif %}
+
+      {% endif %}
+
+    </div>
+  </div>
+</div>
