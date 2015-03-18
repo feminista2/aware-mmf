@@ -548,6 +548,7 @@ nav {
     position: relative;
     top: -5px;
     width: 27%; // 81 by 300
+    padding: 10px 0px;
     @include border-radius-top-left(0px);
     @include border-radius-bottom-left(0px);
 
@@ -1963,10 +1964,11 @@ ul.homepage_excerpt-list {
 }
 
 #social-facebook {
- width:20%;
-  margin-left:25%;
-  margin-right:5%;
-  display:inline;
+ width:80%;
+  margin-left:10%;
+  margin-right:10%;
+    margin-bottom:10px;
+  display:block;
   border: 2px solid $theme-color-1;
   padding:10px;
   color:#fff;
@@ -1978,10 +1980,10 @@ ul.homepage_excerpt-list {
   }
 }
 #social-twitter {
- width:20%;
-  margin-left:5%;
-  margin-right:25%;
-  display:inline;
+ width:80%;
+    margin-left:10%;
+  margin-right:10%;
+  display:block;
   border: 2px solid $theme-color-1;
   padding:10px;
   color:#fff;
