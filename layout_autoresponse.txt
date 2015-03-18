@@ -1,0 +1,8 @@
+{% yield %}
+
+-=-=-
+Ce courriel a été envoyé à {{ recipient.email }}.{% if page %}  Ne plus recevoir des mises à jour pour cette page: {{ page.unsubscribe_url }}{% endif %}
+{{ settings.official_name }}{% if settings.has_address? %} - {{ settings.address.one_line }} {% endif %}
+-=-=-
+
+Courriel généré avec la plateforme NationBuilder - http://nationbuilder.com/
