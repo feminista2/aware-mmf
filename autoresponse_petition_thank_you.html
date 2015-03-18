@@ -1,0 +1,14 @@
+{{ recipient.first_name_or_friend }} --
+<br /><br />
+Merci d'avoir signé. Veuillez transférer ce courriel à d'autres personnes qui pourraient vouloir signer.
+<br/><br/>
+{{ broadcaster.name }}<br/>
+{{ site.full_url }}<br/>
+<br/>
+Voici le texte complet de la pétition:
+<br/><br/>
+<b>{{ page.headline }}</b>
+<br/><br/>
+{{ page.petition.content }}
+<br/><br/>
+Pour signer: <a href="{{ page.full_url_with_recruiter }}">{{ page.full_url_with_recruiter }}</a>
