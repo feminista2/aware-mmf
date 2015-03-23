@@ -170,7 +170,7 @@ img {
 body {
   background: url($background-texture) repeat $theme-color-2;
   margin: 0;
-  font: 14.5px/21px $font;
+  font: 15px/21px $font;
   color: #000;
 }
 
@@ -2030,5 +2030,18 @@ border-bottom: 2px solid $theme-color-1;
   font-size: 12px;
   p {
   margin: 2px 0;
+  }
+}
+
+.revue-de-presse { 
+  h3 {
+  margin: 20px 0 0 0!important;
+}
+  p {
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 15px;
+  margin-top: 5px;
+  color: #888;
   }
 }
